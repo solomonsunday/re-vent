@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Segment, Item, Icon, List, Button } from 'semantic-ui-react';
 import EventListAttendee from './EventListAttendee';
 
-class EventnListItem extends Component {
+class EventListItem extends Component {
     render() {
         const { event } = this.props;
         return (
@@ -14,7 +14,7 @@ class EventnListItem extends Component {
                             <Item.Content>
                                 <Item.Header as="a">{event.title}</Item.Header>
                                 <Item.Description>
-                                    Hosted by <a>{event.hostedBY}</a>
+                                    Hosted by <a>{event.hostedBy}</a>
                                 </Item.Description>
                             </Item.Content>
                         </Item>
@@ -43,4 +43,4 @@ class EventnListItem extends Component {
         )
     }
 }
-export default EventnListItem;
+export default EventListItem;
