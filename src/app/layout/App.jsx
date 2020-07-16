@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Button, Container } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import EventDashbord from '../../feature/event/EventDashboard/EventDashbord';
 import NavBar from '../../feature/nav/NavBar/NavBar';
 

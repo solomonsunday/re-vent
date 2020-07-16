@@ -2,7 +2,7 @@ import React from 'react'
 import PlacesAutoComplete from 'react-places-autocomplete';
 import { Form, Label, Segment, List } from 'semantic-ui-react';
 
-export const PlaceInput = ({ input: { value, onChange, OnBlur }, width, options, placeholder, meta: { touch, error } }) => {
+ const PlaceInput = ({ input: { value, onChange, OnBlur }, width, options, placeholder, meta: { touch, error } }) => {
     return (
         <PlacesAutoComplete value={value}
             onChange={onChange}
@@ -12,7 +12,7 @@ export const PlaceInput = ({ input: { value, onChange, OnBlur }, width, options,
                     <input placeholder={placeholder} {...getInputprops({ placeholder, OnBlur })} />
                     {touched && error && <Label basic color='red'>{error}</Label>}
                     {suggestions.length > 0 && (
-                        <Segment>
+                        <Segment style={{ marginTop: 0, position: 'absolute', zIndex: 1000, width: '100%' }}>
                             {loading && <div>Loading...</div>}
                             <List selection>
                                 {suggestions.map(suggestions => (
