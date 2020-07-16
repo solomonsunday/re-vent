@@ -10,6 +10,15 @@ class EventForm extends Component {
         hostedBy: ''
     }
 
+
+    componentDidMount() {
+        if (this.props.selectedEvent !== null) {
+            this.setState({
+                ...this.props.selectedEvent
+            })
+        }
+    }
+
     handleFormSubmit = (evt) => {
         evt.preventDefault();
         // console.log(this.state)
@@ -71,7 +80,7 @@ class EventForm extends Component {
                             value={hostedBy}
                             placeholder="Enter the name of person hosting" />
                     </Form.Field>
-                    <Button  positive type="submit">
+                    <Button positive type="submit">
                         Submit
                       </Button>
                     <Button onClick={cancelFormOpen} type="button">Cancel</Button>
