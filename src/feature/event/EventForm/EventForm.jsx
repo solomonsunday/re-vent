@@ -10,7 +10,7 @@ class EventForm extends Component {
         hostedBy: ''
     }
 
-
+    //React.Component Documentation for more.
     componentDidMount() {
         if (this.props.selectedEvent !== null) {
             this.setState({
@@ -22,7 +22,11 @@ class EventForm extends Component {
     handleFormSubmit = (evt) => {
         evt.preventDefault();
         // console.log(this.state)
-        this.props.createEvent(this.state);
+        if (this.state.id) {
+            this.props.updatedEvent(this.state);
+        } else {
+            this.props.createEvent(this.state);
+        }
     }
 
     handleInputChange = ({ target: { name, value } }) => {
