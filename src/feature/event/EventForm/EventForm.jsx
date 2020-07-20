@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Segment, Form, Button } from 'semantic-ui-react';
-import cuid from 'cuid';
 class EventForm extends Component {
     state = {
         title: '',
