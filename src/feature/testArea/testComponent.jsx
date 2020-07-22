@@ -6,7 +6,7 @@ import TestPlaceInput from './TestPlaceInput';
 
 
 const mapState = (state) => ({
-    data: state.data
+    data: state.test.data
 })
 
 //mapDispatchToProps
