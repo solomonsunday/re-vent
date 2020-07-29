@@ -1,4 +1,3 @@
-import { actions } from "react-redux-toastr";
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from "./TestConstants";
 import { createReducer } from "../../app/common/Util/reducerUtils";
 
@@ -30,4 +29,3 @@ export default createReducer(initialState, {
     [DECREMENT_COUNTER]: decrementCounter
 })
 
-export default createReducer;
