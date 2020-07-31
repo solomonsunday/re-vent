@@ -4,12 +4,20 @@ import { connect } from 'react-redux';
 import EventList from '../EventList/EventList';
 import EventForm from '../EventForm/EventForm';
 import cuid from 'cuid';
+import { createEvent, deleteEvent, updateEvent } from '../eventAction';
 
 
 
 const mapState = (state) => ({
     events: state.events
 })
+
+
+const actions = {
+    createEvent,
+    deleteEvent,
+    updateEvent
+}
 class EventDashbord extends Component {
     state = {
         isOpen: false,
@@ -45,10 +53,11 @@ class EventDashbord extends Component {
 
     // Here again we Distructured to avoid this.state.events.
     handleCreateEvent = (newEvent) => {
-        newEvent.id = cuid;
+        newEvent.id = cuid();
         newEvent.hostPhotoURL = '/assets/user.png';
+        this.props.createEvent(newEvent);
         this.setState(({ events }) => ({
-            events: [...events, newEvent],
+            // events: [...events, newEvent],
             isOpen: false
         }));
 
@@ -62,25 +71,33 @@ class EventDashbord extends Component {
     }
 
     handleUpdateEvent = (updatedEvent) => {
+        this.props.updateEvent(updatedEvent)
         this.setState(({ events }) => ({
-            events: events.map(event => {
-                if (event.id === updatedEvent.id) {
-                    return { ...updatedEvent }
-                } else {
-                    return event
-                }
-            }),
+            // events: events.map(event => {
+            //     if (event.id === updatedEvent.id) {
+            //         return { ...updatedEvent }
+            //     } else {
+            //         return event
+            //     }
+            // }),
             isOpen: false,
             selectedEvent: null
         }))
     }
 
-    handleDeleteEvent = (id) => {
-        this.setState(({ events }) => ({
-            events: events.filter(e => e.id !== id)
-        }));
+    // handleDeleteEvent = (id) => {
+    //     this.setState(({ events }) => ({
+    //         events: events.filter(e => e.id !== id)
 
-    }
+    //     }));
+    // console.log(events)
+
+    //}
+    handleDeleteEvent = (id) => {
+        this.props.deleteEvent(id);
+    };
+
+
 
 
     render() {
@@ -106,6 +123,7 @@ class EventDashbord extends Component {
                 </Grid.Column>
             </Grid>
         )
-    }
+    };
+
 }
-export default connect(mapState)(EventDashbord);
+export default connect(mapState, actions)(EventDashbord);

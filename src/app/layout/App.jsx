@@ -24,7 +24,7 @@ class App extends Component {
               {/* Higher Order Component */}
               <NavBar />
               <Container className="main">
-                <Route path='/events' component={EventDashbord} />
+                <Route exact path='/events' component={EventDashbord} />
                 <Route path='/events/:id' component={EventDetailedPage} />
                 <Route path='/people' component={PeopleDashboard} />
                 <Route path='/profile/:id' component={UserDetailedPage} />
