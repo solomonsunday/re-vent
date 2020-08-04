@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Segment, Header, Comment, Form, Button } from 'semantic-ui-react';
 
-export const EventDetailChart = () => {
+export const EventDetailedChart = () => {
     return (
         <Fragment>
             <Segment
@@ -91,4 +91,4 @@ export const EventDetailChart = () => {
         </Fragment>
     );
 }
-export default EventDetailChart;
+export default EventDetailedChart;
